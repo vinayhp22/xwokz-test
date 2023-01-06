@@ -1,0 +1,28 @@
+package test.jan6;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+import java.util.Scanner;
+
+class  MaxMinList{
+
+	public static void main(String[] args) {
+
+		// input= 45,333,76,29,900,23,474,654,29,454
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Enter size of List /n");
+		int size = scanner.nextInt();
+		List<Integer> list = new ArrayList<Integer>();
+		System.out.println("Enter " + size + " elements to add List/n");
+		for (int i = 0; i < size; i++) {
+			list.add(scanner.nextInt());
+		}
+		Optional<Integer> min = list.stream().sorted((a1, a2) -> a1.compareTo(a2)).findFirst();
+		System.out.println("Max value :- " + min);
+
+		Optional<Integer> max = list.stream().sorted((a1, a2) -> a2.compareTo(a1)).findFirst();
+		System.out.println("Max value :- " + max);
+
+	}
+}
